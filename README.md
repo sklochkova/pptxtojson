@@ -1,28 +1,28 @@
 # 🎨 pptxtojson
-一个运行在浏览器中，可以将 .pptx 文件转为可读的 JSON 数据的 JavaScript 库。
+A JavaScript library that runs in the browser and converts .pptx files to readable JSON data.
 
-> 与其他的pptx文件解析工具的最大区别在于：
-> 1. 直接运行在浏览器端；
-> 2. 解析结果是**可读**的 JSON 数据，而不仅仅是把 XML 文件内容原样翻译成难以理解的 JSON。
+> The main differences from other pptx file parsing tools are:
+> 1. Runs directly in the browser;
+> 2. The parsing result is **readable** JSON data, not just a direct translation of XML content into hard-to-understand JSON.
 
-在线DEMO：https://pipipi-pikachu.github.io/pptxtojson/
+Online DEMO: https://pipipi-pikachu.github.io/pptxtojson/
 
-# 🪧 注意事项
-### ⚒️ 使用场景
-本仓库诞生于项目 [PPTist](https://github.com/pipipi-pikachu/PPTist) ，希望为其“导入 .pptx 文件功能”提供一个参考示例。不过就目前来说，解析出来的PPT信息与源文件在样式上还是存在不少差距，还不足以直接运用到生产环境中。
+# 🪧 Notes
+### ⚒️ Use Cases
+This repository was created for the project [PPTist](https://github.com/pipipi-pikachu/PPTist), aiming to provide a reference example for its "import .pptx file feature". However, as of now, there are still many differences in style between the parsed PPT information and the source file, making it not yet suitable for direct use in production environments.
 
-但如果你只是需要提取PPT文件的文本内容和媒体资源信息，对排版精准度/样式信息没有特别高的要求，那么 pptxtojson 可能会对你有一些帮助。
+But if you only need to extract text content and media resource information from PPT files, and do not have high requirements for layout accuracy/style information, pptxtojson might be helpful for you.
 
-### 📏 长度值单位
-输出的JSON中，所有数值长度值单位都为`pt`（point）
-> 注意：在0.x版本中，所有输出的长度值单位都是px（像素）
+### 📏 Length Unit
+In the output JSON, all length values are in `pt` (point).
+> Note: In version 0.x, all output length values were in px (pixels).
 
-# 🔨安装
+# 🔨 Installation
 ```
 npm install pptxtojson
 ```
 
-# 💿用法
+# 💿 Usage
 ```html
 <input type="file" accept="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
 ```
@@ -43,7 +43,7 @@ document.querySelector('input').addEventListener('change', evt => {
 ```
 
 ```js
-// 输出示例
+// Output Example
 {
 	"slides": {
 		"fill": {
@@ -66,7 +66,7 @@ document.querySelector('input').addEventListener('change', evt => {
 				"isFlipH": false,
 				"rotate": 0,
 				"vAlign": "mid",
-				"name": "矩形 1",
+				"name": "Rectangle 1",
 				"type": "shape",
 				"shapType": "rect"
 			},
@@ -80,153 +80,153 @@ document.querySelector('input').addEventListener('change', evt => {
 }
 ```
 
-# 📕 功能支持
+# 📕 Feature Support
 
-### 幻灯片尺寸
-| prop                   | type                           | 描述            
+### Slide Size
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度  
+| width                  | number                         | Width            
+| height                 | number                         | Height  
 
-### 页面背景
-| prop                   | type                            | 描述            
+### Slide Background
+| prop                   | type                            | Description            
 |------------------------|---------------------------------|---------------
-| type                   | 'color' 丨 'image' 丨 'gradient' | 背景类型            
-| value                  | SlideColorFill 丨 SlideImageFill 丨 SlideGradientFill| 背景值  
+| type                   | 'color' 丨 'image' 丨 'gradient' | Background type            
+| value                  | SlideColorFill 丨 SlideImageFill 丨 SlideGradientFill| Background value  
 
-### 页内元素
-#### 文字
-| prop                   | type                           | 描述            
+### Slide Elements
+#### Text
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'text'                         | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| borderColor            | string                         | 边框颜色          
-| borderWidth            | number                         | 边框宽度          
-| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | 边框类型          
-| borderStrokeDasharray  | string                         | 非实线边框样式       
-| shadow                 | Shadow                         | 阴影            
-| fillColor              | string                         | 填充色           
-| content                | string                         | 内容文字（HTML富文本） 
-| isFlipV                | boolean                        | 垂直翻转          
-| isFlipH                | boolean                        | 水平翻转          
-| rotate                 | number                         | 旋转角度          
-| vAlign                 | string                         | 垂直对齐方向        
-| isVertical             | boolean                        | 是否为竖向文本        
-| name                   | string                         | 元素名  
+| type                   | 'text'                         | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| borderColor            | string                         | Border color          
+| borderWidth            | number                         | Border width          
+| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | Border type          
+| borderStrokeDasharray  | string                         | Non-solid border style       
+| shadow                 | Shadow                         | Shadow            
+| fillColor              | string                         | Fill color           
+| content                | string                         | Text content (HTML rich text) 
+| isFlipV                | boolean                        | Vertical flip          
+| isFlipH                | boolean                        | Horizontal flip          
+| rotate                 | number                         | Rotation angle          
+| vAlign                 | string                         | Vertical alignment        
+| isVertical             | boolean                        | Is vertical text        
+| name                   | string                         | Element name  
 
-#### 图片
-| prop                   | type                           | 描述            
+#### Image
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'image'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| src                    | string                         | 图片地址（base64）    
-| rotate                 | number                         | 旋转角度  
+| type                   | 'image'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| src                    | string                         | Image source (base64)    
+| rotate                 | number                         | Rotation angle  
 
-#### 形状
-| prop                   | type                           | 描述            
+#### Shape
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'shape'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| borderColor            | string                         | 边框颜色          
-| borderWidth            | number                         | 边框宽度          
-| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | 边框类型          
-| borderStrokeDasharray  | string                         | 非实线边框样式       
-| shadow                 | Shadow                         | 阴影            
-| fillColor              | string                         | 填充色           
-| content                | string                         | 内容文字（HTML富文本） 
-| isFlipV                | boolean                        | 垂直翻转          
-| isFlipH                | boolean                        | 水平翻转          
-| rotate                 | number                         | 旋转角度          
-| shapType               | string                         | 形状类型          
-| vAlign                 | string                         | 垂直对齐方向        
-| path                   | string                         | 路径（仅自定义形状存在）         
-| name                   | string                         | 元素名   
+| type                   | 'shape'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| borderColor            | string                         | Border color          
+| borderWidth            | number                         | Border width          
+| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | Border type          
+| borderStrokeDasharray  | string                         | Non-solid border style       
+| shadow                 | Shadow                         | Shadow            
+| fillColor              | string                         | Fill color           
+| content                | string                         | Text content (HTML rich text) 
+| isFlipV                | boolean                        | Vertical flip          
+| isFlipH                | boolean                        | Horizontal flip          
+| rotate                 | number                         | Rotation angle          
+| shapType               | string                         | Shape type          
+| vAlign                 | string                         | Vertical alignment        
+| path                   | string                         | Path (only for custom shapes)         
+| name                   | string                         | Element name   
 
-#### 表格
-| prop                   | type                           | 描述            
+#### Table
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'table'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度               
-| borderColor            | string                         | 边框颜色          
-| borderWidth            | number                         | 边框宽度          
-| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | 边框类型           
-| data                   | TableCell[][]                  | 表格数据
+| type                   | 'table'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height               
+| borderColor            | string                         | Border color          
+| borderWidth            | number                         | Border width          
+| borderType             | 'solid' 丨 'dashed' 丨 'dotted' | Border type           
+| data                   | TableCell[][]                  | Table data
 
-#### 图表
-| prop                   | type                           | 描述            
+#### Chart
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'chart'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| data                   | ChartItem[] 丨 ScatterChartData | 图表数据    
-| chartType              | ChartType                      | 图表类型    
-| barDir                 | 'bar' 丨 'col'                  | 柱状图方向    
-| marker                 | boolean                        | 是否带数据标记    
-| holeSize               | string                         | 环形图尺寸    
-| grouping               | string                         | 分组模式    
-| style                  | string                         | 图表样式 
+| type                   | 'chart'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| data                   | ChartItem[] 丨 ScatterChartData | Chart data    
+| chartType              | ChartType                      | Chart type    
+| barDir                 | 'bar' 丨 'col'                  | Bar chart direction    
+| marker                 | boolean                        | With data markers    
+| holeSize               | string                         | Doughnut chart size    
+| grouping               | string                         | Grouping mode    
+| style                  | string                         | Chart style 
 
-#### 视频
-| prop                   | type                           | 描述            
+#### Video
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'video'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| blob                   | string                         | 视频blob    
-| src                    | string                         | 视频src 
+| type                   | 'video'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| blob                   | string                         | Video blob    
+| src                    | string                         | Video source 
 
-#### 音频
-| prop                   | type                           | 描述            
+#### Audio
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'audio'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| blob                   | string                         | 音频blob   
+| type                   | 'audio'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| blob                   | string                         | Audio blob   
 
-#### Smart图
-| prop                   | type                           | 描述            
+#### SmartArt
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'diagram'                      | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| elements               | (Shape 丨 Text)[]               | 子元素集合  
+| type                   | 'diagram'                      | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| elements               | (Shape 丨 Text)[]               | Child elements  
 
-#### 多元素组合
-| prop                   | type                           | 描述            
+#### Grouped Elements
+| prop                   | type                           | Description            
 |------------------------|--------------------------------|---------------
-| type                   | 'group'                        | 类型            
-| left                   | number                         | 水平坐标          
-| top                    | number                         | 垂直坐标          
-| width                  | number                         | 宽度            
-| height                 | number                         | 高度            
-| elements               | Element[]                      | 子元素集合  
+| type                   | 'group'                        | Type            
+| left                   | number                         | Horizontal position          
+| top                    | number                         | Vertical position          
+| width                  | number                         | Width            
+| height                 | number                         | Height            
+| elements               | Element[]                      | Child elements  
 
-### 更多类型请参考 👇
+### For more types, please refer to 👇
 [https://github.com/pipipi-pikachu/pptxtojson/blob/master/dist/index.d.ts](https://github.com/pipipi-pikachu/pptxtojson/blob/master/dist/index.d.ts)
 
-# 🙏 感谢
-本仓库大量参考了 [PPTX2HTML](https://github.com/g21589/PPTX2HTML) 和 [PPTXjs](https://github.com/meshesha/PPTXjs) 的实现。
-> 与它们不同的是，PPTX2HTML 和 PPTXjs 是将PPT文件转换为能够运行的 HTML 页面，而 pptxtojson 做的是将PPT文件转换为干净的 JSON 数据
+# 🙏 Acknowledgements
+This repository heavily references the implementations of [PPTX2HTML](https://github.com/g21589/PPTX2HTML) and [PPTXjs](https://github.com/meshesha/PPTXjs).
+> Unlike them, PPTX2HTML and PPTXjs convert PPT files into runnable HTML pages, while pptxtojson converts PPT files into clean JSON data.
 
-# 📄 开源协议
+# 📄 License
 MIT License | Copyright © 2020-PRESENT [pipipi-pikachu](https://github.com/pipipi-pikachu)
