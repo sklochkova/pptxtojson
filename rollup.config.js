@@ -17,8 +17,8 @@ export default {
   onwarn,
   output: [
     {
-      file: 'dist/index.umd.js',
-      format: 'umd',
+      file: 'dist/index.cjs.js',
+      format: 'cjs',
       name: 'pptxtojson',
       sourcemap: true,
     },
